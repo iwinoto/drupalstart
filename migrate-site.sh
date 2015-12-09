@@ -6,6 +6,12 @@ then
   current_exists=1
 fi
 
+# See if old version already exists...
+if [[ `cf a` =~ .*"${CF_APP}"-old.* ]]
+then
+  cf delete "${CF_APP}-old" -f
+fi
+
 # Set the production route to the new app version
 cf map-route "${CF_APP}-new" e1.net -n "${CF_APP}"
 
