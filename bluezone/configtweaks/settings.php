@@ -1,5 +1,11 @@
 <?php
 
+$application = getenv("VCAP_APPLICATION");
+$application_json = json_decode($application,true);
+
+$services = getenv("VCAP_SERVICES");
+$services_json = json_decode($services,true);
+
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -342,7 +348,8 @@ ini_set('session.cookie_lifetime', 2000000);
  * - anonymous: Defines the human-readable name of anonymous users.
  * Remove the leading hash signs to enable.
  */
-$conf['site_name'] = 'Metlife Drupal site!!';
+
+# $conf['site_name'] = 'Drupal';
 # $conf['theme_default'] = 'garland';
 # $conf['anonymous'] = 'Visitor';
 
@@ -584,13 +591,9 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  * Remove the leading hash sign to enable.
  */
 # $conf['theme_debug'] = TRUE;
-$application = getenv("VCAP_APPLICATION");
-$application_json = json_decode($application,true);
 if (isset($application_json["application_uris"])) {
   $base_url = "https://" . $application_json["application_uris"][0];
 }
-$services = getenv("VCAP_SERVICES");
-$services_json = json_decode($services,true);
 if (isset($services_json)) {
   if (isset($services_json["user-provided"][0]["credentials"])) {
     $postgres_config = $services_json["user-provided"][0]["credentials"];
@@ -613,4 +616,7 @@ $databases = array (
     ),
   ),
 );
+
+$conf['site_name'] = 'Metlife Drupal site!! (' + $base_url + ')';
+$conf['site_slogan'] = 'Don\'t be a droop, Drupal it! (' + $base_url + ')';
 
