@@ -617,6 +617,6 @@ $databases = array (
   ),
 );
 
-$conf['site_name'] = 'Metlife Drupal site!! (' . $base_url . ')';
+$conf['site_name'] = 'Metlife Drupal site!!';
 $conf['site_slogan'] = 'Don\'t be a droop, Drupal it! (' . $base_url . ')';
 
