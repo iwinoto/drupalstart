@@ -14,7 +14,7 @@ then
   # Rename current app version to old
   cf rename "${CF_APP}-current" "${CF_APP}-old"
   cf unmap-route "${CF_APP}-old" $default_domain -n "iw-${CF_APP}-current-${CF_SPACE}"
-  cf map-route "${CF_APP}-current" $default_domain -n "iw-${CF_APP}-old-${CF_SPACE}"
+  cf map-route "${CF_APP}-old" $default_domain -n "iw-${CF_APP}-old-${CF_SPACE}"
   # Restart so that settings.php pick up the new URI and application name
   cf restart "${CF_APP}-old"
 fi
