@@ -618,5 +618,5 @@ $databases = array (
 );
 
 $conf['site_name'] = 'Metlife Drupal site!!';
-$conf['site_slogan'] = 'Don\'t be a droop, Drupal it! (' . $application_json["application_uris"] . '; ' . $application_json["name"] . ')';
+$conf['site_slogan'] = 'Don\'t be a droop, Drupal it! (' . implode("; ", $application_json["application_uris"]) . '; ' . $application_json["name"] . ')';
 
