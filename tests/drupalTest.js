@@ -19,6 +19,7 @@ exports.testcase = {
     console.log("startUp");
     callback();
   },
+  
   tearDown: function (callback) {
     //cleanup
     console.log("tearDown");
@@ -37,15 +38,15 @@ exports.testcase = {
     
     base_uri = vcap_application.application_uris[0];
     https.get("https://" + base_uri, function(res){
-    	test.ok(res.statusCode < 200 || response.statusCode > 299);
-    	test.done;
     	response.on('data', function(chunk) {
             console.log("GET got ", chunk.length, " characters.");
     	});
+    	test.ok(res.statusCode < 200 || response.statusCode > 299);
+    	test.done;
     }).on('error', function(e) {
         console.log('problem with request: ' + e.message);
     });
 
   }
-*/
+  */
 };
