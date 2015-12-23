@@ -13,7 +13,7 @@ stages:
     build_type: shell
     script: |-
       #!/bin/bash
-      ./build.sh
+      /bin/bash ./build.sh
 - name: SameDayDelivery
   inputs:
   - type: job
@@ -31,4 +31,4 @@ stages:
       application: ${CF_APP}
     script: |
       #!/bin/bash
-      ./deploy.sh
+      /bin/bash ./deploy.sh
