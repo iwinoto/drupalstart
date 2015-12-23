@@ -46,7 +46,7 @@ fi
 p=0
 until [ $p -ge 2 ]
 do
-   cf push "${CF_APP}" -n "iw-${CF_APP}-${CF_SPACE}" && echo -e "${beer} ${beers}${Green}  Congrats! Your secure Drupal deploy is up and running!${no_color}" && echo -e "${beer} ${beers}${Green}  finis coronat opus${no_color}" && break
+   cf push "${CF_APP}" -n "${CF_APP}" && echo -e "${beer} ${beers}${Green}  Congrats! Your secure Drupal deploy is up and running!${no_color}" && echo -e "${beer} ${beers}${Green}  finis coronat opus${no_color}" && break
    p=$[$p+1]
    sleep 10
 done
